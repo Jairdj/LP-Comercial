@@ -1,0 +1,32 @@
+﻿@model IEnumerable<ListPeople.Models.Person>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h1>Pessoas</h1>
+
+<a href="/people/Create" class="btn btn-default">Nova Pessoa</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>Nome</td>
+            <td>Idade</td>
+            <td>Ações</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach( var item in Model ) {
+            <tr>
+                <td>@item.id</td>
+                <td>@item.name</td>
+                <td>@item.age</td>
+                <td>
+                    <a href="/people/Edit/@item.id" class="btn btn-primary">Editar</a>
+                    <a href="/people/Delete/@item.id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+            }
+    </tbody>
+</table>
